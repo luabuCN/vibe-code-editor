@@ -42,8 +42,7 @@ const lucideIconMap: Record<string, LucideIcon> = {
   Compass: Compass,
   FlameIcon: FlameIcon,
   Terminal: Terminal,
-  Code2: Code2, // Include the default icon
-  // Add any other icons you might use dynamically
+  Code2: Code2,
 }
 
 interface PlaygroundDataProps {

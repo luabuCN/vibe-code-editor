@@ -1,6 +1,8 @@
 
+import { getAllPlaygroundForUser } from "@/featrues/dashboard/actions";
 import AddNewButton from "@/featrues/dashboard/components/add-new-btn";
 import AddRepoButton from "@/featrues/dashboard/components/add-repo-btn";
+import ProjectTable from "@/featrues/dashboard/components/project-table";
 
 
 const EmptyState = () => (
@@ -12,7 +14,7 @@ const EmptyState = () => (
 );
 
 const DashboardMainPage = async () => {
-  const playgrounds :any[] = []
+  const playgrounds = await getAllPlaygroundForUser();
   return (
     <div className="flex flex-col justify-start items-center min-h-screen mx-auto max-w-7xl px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
@@ -23,7 +25,10 @@ const DashboardMainPage = async () => {
         {playgrounds && playgrounds.length === 0 ? (
           <EmptyState />
         ) : (
-          <p></p>
+          
+          <ProjectTable
+            projects={playgrounds || []}
+          />
         )}
       </div>
     </div>
